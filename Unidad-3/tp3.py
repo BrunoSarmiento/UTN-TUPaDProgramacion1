@@ -1,3 +1,6 @@
+import random
+from statistics import mean, median, mode
+
 #1) Escribir un programa que solicite la edad del usuario. Si el usuario es mayor de 18 años,
 #deberá mostrar un mensaje en pantalla que diga “Es mayor de edad”.
 
@@ -23,7 +26,7 @@ else:
 
 num:int = int(input("Ingrese un numero par: "))
 if num%2 == 0 :
-    print("El nunmero es par")
+    print("El numero es par")
 else:
     print("Por favor ingrese un numero par")
 
@@ -57,6 +60,87 @@ contrasenia:str = input("Ingrese una contraseña de entre 8 y 14 caracteres: ")
 if len(contrasenia) >= 8 and len(contrasenia) <= 14:
     print("Ha ingresado una contraseña correcta")
 else:
-    print("Por favor ingrese una contraseña de netre 8 y 14 caracteres")
+    print("Por favor ingrese una contraseña de entre 8 y 14 caracteres")
 
+#6) Escribir un programa que tome la lista numeros_aleatorios,
+# calcule su moda, su mediana y su media y las compare para determinar si
+#hay sesgo positivo, negativo o no hay sesgo. Imprimir el resultado por pantalla.
 
+numeros_aleatorios = [random.randint(1, 100)for i in range(50)]
+
+print(numeros_aleatorios)
+
+media:float = mean(numeros_aleatorios)
+mediana:float = median(numeros_aleatorios)
+moda:float = mode(numeros_aleatorios)
+
+print(f"La media es: {media}, la mediana es: {mediana}, y la moda es: {moda}")
+
+if media > mediana and mediana > moda:
+    print("Sesgo positivo o a la derecha")
+elif media < mediana and mediana < moda:
+    print("Sesgo negativo o a la izquierda")
+elif media == mediana == moda:
+    print("Sin sesgo")
+else:
+    print("Ha ocurrido un error inesperado")
+
+#7) Escribir un programa que solicite una frase o palabra al usuario. Si el string ingresado
+#termina con vocal, añadir un signo de exclamación al final e imprimir el string resultante por
+#pantalla; en caso contrario, dejar el string tal cual lo ingresó el usuario e imprimirlo por
+#pantalla.
+
+frase:str = input("Ingrese una frase: ")
+ult_letra:str = frase[-1]
+
+if ("a"==ult_letra)or("e"==ult_letra)or("i"==ult_letra)or("o"==ult_letra)or("u"==ult_letra)or("A"==ult_letra)or("E"==ult_letra)or("I"==ult_letra)or("O"==ult_letra)or("U"==ult_letra):
+    print(f"{frase}!")
+else:
+    print(frase)
+
+#8) Escribir un programa que solicite al usuario que ingrese su nombre y el número 1, 2 o 3
+#dependiendo de la opción que desee:
+#1. Si quiere su nombre en mayúsculas. Por ejemplo: PEDRO.
+#2. Si quiere su nombre en minúsculas. Por ejemplo: pedro.
+#3. Si quiere su nombre con la primera letra mayúscula. Por ejemplo: Pedro.
+#El programa debe transformar el nombre ingresado de acuerdo a la opción seleccionada por el
+#usuario e imprimir el resultado por pantalla.
+
+nombre:str=input("Ingrese su nombre: ") 
+opcion:int=int(input("Ingrese una opcion: \n(1)Si quiere su nombre en mayúsculas. Por ejemplo: PEDRO. \n(2)Si quiere su nombre en minúsculas. Por ejemplo: pedro. \n(3)Si quiere su nombre con la primera letra mayúscula. Por ejemplo: Pedro.\n"))
+
+if opcion==1:
+    print(nombre.upper())
+elif opcion==2:
+    print(nombre.lower())
+elif opcion==3:
+    print(nombre.title())
+else:
+    print("Ingrese una opcion correcta")
+
+#9) Escribir un programa que pida al usuario la magnitud de un terremoto, clasifique la
+#magnitud en una de las siguientes categorías según la escala de Richter e imprima el resultado
+#por pantalla:
+#● Menor que 3: "Muy leve" (imperceptible).
+#● Mayor o igual que 3 y menor que 4: "Leve" (ligeramente perceptible).
+#● Mayor o igual que 4 y menor que 5: "Moderado" (sentido por personas, pero generalmente no causa daños).
+#● Mayor o igual que 5 y menor que 6: "Fuerte" (puede causar daños en estructuras débiles).
+#● Mayor o igual que 6 y menor que 7: "Muy Fuerte" (puede causar daños significativos).
+#● Mayor o igual que 7: "Extremo" (puede causar graves daños a gran escala).
+
+magnitud:float=float(input("Ingrese la magnitud del terromoto: "))
+
+if magnitud>=0 and magnitud<3:
+    print("Muy leve")
+elif magnitud>=3 and magnitud<4:
+    print("Leve")
+elif magnitud>=4 and magnitud<5:
+    print("Moderado")
+elif magnitud>=5 and magnitud<6:
+    print("Fuerte")
+elif magnitud>=6 and magnitud<7:
+    print("Muy fuerte")
+elif magnitud>=7 and magnitud<=11:
+    print("Extremo")
+else:
+    print("Ingrese una escala correcta")
