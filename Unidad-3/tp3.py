@@ -144,3 +144,88 @@ elif magnitud>=7 and magnitud<=11:
     print("Extremo")
 else:
     print("Ingrese una escala correcta")
+
+#Escribir un programa que pregunte al usuario en cuál hemisferio se encuentra (N/S), qué mes
+#del año es y qué día es. El programa deberá utilizar esa información para imprimir por pantalla
+#si el usuario se encuentra en otoño, invierno, primavera o verano.
+
+dia:int = int(input("Ingrese el día: "))
+mes:str = input("Ingrese el mes (en palabras, ej: enero): ").lower()
+hemisferio:str = input("Ingrese el hemisfero: \n(N) para Norte\n(S) para Sur\n").upper()
+
+print(dia,mes,hemisferio)
+
+if ("N" in hemisferio):
+    if "diciembre" in mes:
+        if dia>=21:
+            print("Es invierno")
+    if "marzo" in mes:
+        if dia<=20:
+            print("Es invierno")
+    if ("enero" in mes) or ("febrero" in mes):
+        print("Es invierno")
+if ("N" in hemisferio):
+    if "marzo" in mes:
+        if dia>=21:
+            print("Es primavera")
+    if "junio" in mes:
+        if dia<=20:
+            print("Es primavera")
+    if ("abril" in mes) or ("mayo" in mes):
+        print("Es primavera")
+if ("N" in hemisferio):
+    if "junio" in mes:
+        if dia>=21:
+            print("Es verano")
+    if "septiembre" in mes:
+        if dia<=20:
+            print("Es verano")
+    if ("julio" in mes) or ("agosto" in mes):
+        print("Es verano")
+if ("N" in hemisferio):
+    if "septiembre" in mes:
+        if dia>=21:
+            print("Es otoño")
+    if "diciembre" in mes:
+        if dia<=20:
+            print("Es otoño")
+    if ("octubre" in mes) or ("noviembre" in mes):
+        print("Es otoño")
+if ("S" in hemisferio):
+    if "diciembre" in mes:
+        if dia>=21:
+            print("Es verano")
+    if "marzo" in mes:
+        if dia<=20:
+            print("Es verano")
+    if ("enero" in mes) or ("febrero" in mes):
+        print("Es verano")
+if ("S" in hemisferio):
+    if "marzo" in mes:
+        if dia>=21:
+            print("Es otoño")
+    if "junio" in mes:
+        if dia<=20:
+            print("Es otoño")
+    if ("abril" in mes) or ("mayo" in mes):
+        print("Es otoño")
+if ("S" in hemisferio):
+    if "junio" in mes:
+        if dia>=21:
+            print("Es invierno")
+    if "septiembre" in mes:
+        if dia<=20:
+            print("Es invierno")
+    if ("julio" in mes) or ("agosto" in mes):
+        print("Es invierno")
+if ("S" in hemisferio):
+    if "septiembre" in mes:
+        if dia>=21:
+            print("Es primavera")
+    if "diciembre" in mes:
+        if dia<=20:
+            print("Es primavera")
+    if ("octubre" in mes) or ("noviembre" in mes):
+        print("Es primavera")
+else:
+    print("Ha ocurrido un error, revise los datos ingresados")
