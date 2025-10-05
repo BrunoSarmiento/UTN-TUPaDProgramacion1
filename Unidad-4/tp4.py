@@ -150,10 +150,13 @@ while bandera:
         num = input("Ingrese un número entero: ")
     elif num.isdigit():
         num = int(num)
-        for i in range(0,num):
-                suma = suma+i
-        print(f"La suma de los numeros es: {contador}")
-        bandera = False
+        if num >= 0:
+            for i in range(0, num + 1):
+                suma = suma + i
+            print(f"La suma de los números es: {suma}")
+            bandera = False
+        else:
+            num = input("Ingrese un número entero positivo: ")
 
 print("---------------------------")
 
@@ -162,9 +165,78 @@ print("---------------------------")
 #negativos y cuántos son positivos. (Nota: para probar el programa puedes usar una cantidad
 #menor, pero debe estar preparado para procesar 100 números con un solo cambio).
 
+cant_num:int=10
 num:str
 cont_par:int=0
 cont_impares:int=0
 cont_negativos:int=0
 cont_positivos:int=0
+bandera:bool = True
+for i in range(0,cant_num):
+        bandera=True
+        while bandera:
+            num = input("Ingrese un numero entero: ")
+            if num.isdigit() or ((num.startswith('-')) and (num[1:].isdigit())):
+                num=int(num)
+                if num>0:
+                    cont_positivos+=1
+                    if num%2==0:
+                        cont_par+=1
+                    elif num%2!=0:
+                        cont_impares+=1
+                elif num<0:
+                    cont_negativos+=1
+                    if num%2==0:
+                        cont_par+=1
+                    elif num%2!=0:
+                        cont_impares+=1
+                bandera=False
+            else:
+                print("Ingrese un numero valido")
+print(f"Positivos: {cont_positivos}\n"
+      f"Negativos: {cont_negativos}\n" \
+      f"Pares: {cont_par}\n" \
+      f"Impares: {cont_impares}")
+print("--------------------------------")
 
+#9) Elabora un programa que permita al usuario ingresar 100 números enteros y luego calcule la
+#media de esos valores. (Nota: puedes probar el programa con una cantidad menor, pero debe
+#poder procesar 100 números cambiando solo un valor).
+cant_num:int=10
+num:str
+media:int=0
+suma:int=0
+bandera:bool = True
+for i in range(0,cant_num):
+        bandera=True
+        while bandera:
+            num = input("Ingrese un numero entero: ")
+            if num.isdigit() or ((num.startswith('-')) and (num[1:].isdigit())):
+                num=int(num)
+                suma=suma+num
+                bandera=False
+            else:
+                print("Ingrese un numero valido")
+media=suma/cant_num
+print(f"La media de los numeros es: {media}")
+print("--------------------------------")
+
+#10) Escribe un programa que invierta el orden de los dígitos de un número ingresado por el
+#usuario. Ejemplo: si el usuario ingresa 547, el programa debe mostrar 745.
+
+num:str
+num_nuevo:str=''
+bandera:bool=True
+while bandera:
+    num = input("Ingrese un numero entero: ")
+    if num.isdigit() or ((num.startswith('-')) and (num[1:].isdigit())):
+        signo: str = ""
+        if num.startswith('-'):
+            signo = "-"
+            num = num[1:]
+        for i in range(len(num)-1, -1, -1):
+            num_nuevo += num[i]
+        bandera=False
+    else:
+        print("Ingrese un numero valido")
+print(f"El número invertido es: {signo}{num_nuevo}")
