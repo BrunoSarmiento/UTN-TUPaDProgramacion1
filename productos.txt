@@ -1,0 +1,5 @@
+nombre,precio,cantidad
+Cartuchera,750.0,10
+Regla,100.0,25
+Portamina,300.0,15
+lapiz, 250, 3
