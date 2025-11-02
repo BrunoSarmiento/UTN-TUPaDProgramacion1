@@ -91,3 +91,106 @@ promedio3 = sum(tupla_alumno3) / 3
 print(f"\nPromedio de {alumno1}: {promedio1:.2f}")
 print(f"Promedio de {alumno2}: {promedio2:.2f}")
 print(f"Promedio de {alumno3}: {promedio3:.2f}")
+
+"""7) Dado dos sets de números, representando dos listas de estudiantes que aprobaron Parcial 1
+y Parcial 2:
+• Mostrá los que aprobaron ambos parciales.
+• Mostrá los que aprobaron solo uno de los dos.
+• Mostrá la lista total de estudiantes que aprobaron al menos un parcial (sin repetir)."""
+
+parcial1 = {"Bruno", "Sofia", "Sara","Gaston","Sergio"}
+parcial2 = {"Bruno", "Sofia","Sergio", "Marcos"}
+
+print(f"Aprobaron ambos parciales: {parcial1 & parcial2}")
+print(f"Aprobaron solo uno de los dos parciales: {parcial1 ^ parcial2}")
+print(f"Lista total de estudiantes que aprobaron al menos un parcial: {parcial1 | parcial2}")
+
+"""8) Armá un diccionario donde las claves sean nombres de productos y los valores su stock.
+Permití al usuario:
+• Consultar el stock de un producto ingresado.
+• Agregar unidades al stock si el producto ya existe.
+• Agregar un nuevo producto si no existe."""
+
+dic_productos = {'sal':1,'aceite':2,'arroz':3,'azucar':4}
+
+def consultar_stock(producto):
+
+    if producto in dic_productos:
+        print(f"Stock de '{producto}': {dic_productos[producto]} unidades")
+    else:
+        print(f"El producto '{producto}' no existe en el inventario.")
+
+def agregar_unidades(producto,unidades):
+    if producto in dic_productos:
+        dic_productos[producto]+=unidades
+        print(f"Stock agregado con exito\n"
+              f"'{producto}': {dic_productos[producto]} unidades")
+    else:
+        print("El producto no se encuentra en el inventario")
+
+def agregar_producto(producto,stock):
+    if not producto in dic_productos:
+        dic_productos[producto]=int(stock)
+        print(f"Producto agregado con éxito:\n'{producto}': {dic_productos[producto]} unidades")
+    else:
+        print("El producto ya existe")
+
+def menu():
+    while True:
+        opcion = input("Elija una opcion: \n" \
+        "1- Consultar el stock de un producto ingresado.\n"
+        "2- Agregar unidades al stock si el producto ya existe.\n"
+        "3- Agregar un nuevo producto si no existe.\n" \
+        "4- Salir")
+
+        match (opcion):
+            case '1':
+                producto=input("Ingrese el producto que desea consultar el stock: ").lower()
+                consultar_stock(producto)
+            case '2':
+                producto=input("Ingrese el producto que desea agregar unidades: ").lower()
+                unidades=int(input("Ingrese la cantidad de unidades (en numeros): "))
+                agregar_unidades(producto,unidades)
+            case '3':
+                producto=input("Ingrese el producto que desea agregar al stock: ").lower()
+                unidades=int(input("Ingrese la cantidad de unidades (en numeros): "))
+                agregar_producto(producto, unidades)
+            case '4':
+                break
+            case _:
+                print("Opcion no valida")
+
+menu()
+
+"""9) Creá una agenda donde las claves sean tuplas de (día, hora) y los valores sean eventos.
+Permití consultar qué actividad hay en cierto día y hora."""
+
+agenda = {
+    ("lunes","10:00"): "Reunion",
+    ("martes","15:00"): "Trabajo",
+    ("miercoles","14:00"):"Cursar",
+    ("jueves","21:00"):"Grupo",
+    ("viernes","18:00"):"Ocio"
+}
+def consultar_agenda(dia):
+    encontrado = False
+    for (d, h), evento in agenda.items():
+        if d.lower() == dia.lower():
+            print(f"{h} -> {evento}")
+            encontrado = True
+    if not encontrado:
+        print(f"No hay eventos programados para el día '{dia}'.")
+
+dia=input("Ingrese el dia del que desea onsultar agenda: ").lower().strip()
+consultar_agenda(dia)
+
+"""10) Dado un diccionario que mapea nombres de países con sus capitales, construí un nuevo
+diccionario donde:
+• Las capitales sean las claves.
+• Los países sean los valores."""
+
+original={"Argentina":"CABA", "Brasil":"Brasilia","Peru":"Lima","Chile":"Santiago"}
+duplicado={}
+for clave, valor in original.items():
+    duplicado[valor]=clave
+print(duplicado)

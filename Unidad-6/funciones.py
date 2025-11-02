@@ -43,3 +43,40 @@ número del 1 al 10. Pedir al usuario el número y llamar a la función."""
 def tabla_multiplicar(numero):
     for i in range(1,11):
         print(numero*i)
+
+"""7. Crear una función llamada operaciones_basicas(a, b) que reciba
+dos números como parámetros y devuelva una tupla con el resultado de sumarlos, restarlos, multiplicarlos y dividirlos.
+ Mostrar los resultados de forma clara."""
+
+def operaciones_basicas(a, b):
+    suma = a+b
+    resta = a-b
+    multiplicacion = a*b
+    division = a/b
+    tupla = (suma, resta, multiplicacion, division)
+    return tupla
+
+"""8. Crear una función llamada calcular_imc(peso, altura) que reciba el
+peso en kilogramos y la altura en metros, y devuelva el índice de masa corporal (IMC).
+Solicitar al usuario los datos y llamar a la función para mostrar el resultado con dos decimales."""
+
+def calcular_imc(peso, altura):
+    imc = peso / (altura**2)
+    return imc
+
+"""9. Crear una función llamada celsius_a_fahrenheit(celsius) que reciba
+una temperatura en grados Celsius y devuelva su equivalente en
+Fahrenheit. Pedir al usuario la temperatura en Celsius y mostrar el
+resultado usando la función"""
+
+def celsius_a_fahrenheit(celsius):
+    fahrenheit = (celsius * 9/5) + 32
+    return fahrenheit
+
+"""10.Crear una función llamada calcular_promedio(a, b, c) que reciba
+tres números como parámetros y devuelva el promedio de ellos.
+Solicitar los números al usuario y mostrar el resultado usando esta función."""
+
+def calcular_promedio(a, b, c):
+    promedio = (a+b+c)/3
+    return promedio

@@ -35,3 +35,38 @@ print(f"{segundos} segundos equivalen a {horas} horas")
 
 numero:int=int(input("Ingese el numero(entero) del que desea saber la tabla de multiplicar: "))
 funciones.tabla_multiplicar(numero)
+
+#Ejercicio 7
+
+a = float(input("Ingrese el primer numero: "))
+b = float(input("Ingrese el segundo numero: "))
+resultado=funciones.operaciones_basicas(a, b)
+
+print(f"{a}+{b} = {resultado[0]}\n"
+      f"{a}-{b} = {resultado[1]}\n" \
+      f"{a}*{b} = {resultado[2]}\n" \
+      f"{a}/{b} = {resultado[3]}")
+
+#Ejercicio 8
+
+peso = float(input("Ingrese el peso: "))
+altura = float(input("Ingrese la altura (en metros): "))
+
+imc = funciones.calcular_imc(peso,altura)
+print(f"SU imc es: {imc:.2f}")
+
+#Ejercicio 9
+
+celsius = float(input("Ingrese los grados celsius: "))
+fahrenheit = funciones.celsius_a_fahrenheit(celsius)
+print(f"{celsius}°C equivalen a {fahrenheit}°F")
+
+#Ejercicio 10
+
+a=float(input("Ingrese la primer nota: "))
+b=float(input("Ingrese la segunda nota: "))
+c=float(input("Ingrese la tercer nota: "))
+
+promedio = funciones.calcular_promedio(a, b, c)
+
+print(f"EL promedio de las notas {a}, {b}, {c} es {promedio}")
